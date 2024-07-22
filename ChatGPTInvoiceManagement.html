@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InvoiceManagement - Giảm 80% tác vụ thủ công</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 60px;
+        background-color: #e6f3ff;
+        padding: 40px;
+        border-radius: 10px;
+    
+      }
+      .hero-content {
+        flex: 1;
+        padding-right: 40px;
+      }
+      .hero-image {
+        flex: 1;
+        text-align: right;
+      }
+      h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      .subtitle {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #555;
+      }
+      .features {
+        margin-bottom: 30px;
+      }
+      .feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .feature::before {
+        content: "✓";
+        color: #4caf50;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn-primary {
+        background-color: #4285f4;
+        color: white;
+      }
+      .btn-secondary {
+        background-color: #4caf50;
+        color: white;
+      }
+      .btn-tertiary {
+        background-color: #ffa500;
+        color: white;
+      }
+      .pricing-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+      }
+      .pricing-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        flex: 1;
+        max-width: 30%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 300px;
+      }
+      .pricing-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .pricing-price {
+        font-size: 24px;
+        color: #007bff;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .pricing-features {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+        text-align: left;
+        flex-grow: 1;
+      }
+      .pricing-features li {
+        margin-bottom: 10px;
+        padding-left: 24px;
+        position: relative;
+      }
+      .pricing-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #007bff;
+      }
+      .pricing-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+      }
+      .pricing-button:hover {
+        background-color: #0056b3;
+      }
+      .center-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+      }
+      .center-image {
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width: 992px) {
+        .hero-content {
+          padding-right: 20px;
+        }
+        .hero-image {
+          text-align: center;
+        }
+        .pricing-card {
+          max-width: 45%;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero-content {
+          padding-right: 0;
+          margin-bottom: 30px;
+        }
+        .hero-image {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        .pricing-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .pricing-card {
+          width: 100%;
+          max-width: 500px;
+        }
+      }
+      .footer {
+        background-color: #00aaff;
+        color: white;
+        padding: 50px 0;
+        margin-top: 40px;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer-section {
+        flex: 1;
+        padding: 0 15px;
+      }
+      .footer img {
+        max-width: 100%;
+        height: auto;
+      }
+      .footer h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      .footer-info {
+        text-align: left;
+      }
+      .footer-info p {
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+      }
+      .footer-info p i {
+        margin-right: 10px;
+        min-width: 20px;
+      }
+      .footer iframe {
+        width: 100%;
+        height: 200px;
+        border: 0;
+      }
+      @media (max-width: 768px) {
+        .footer-content {
+          flex-direction: column;
+          align-items: center;
+        }
+        .footer-section {
+          width: 100%;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+        .footer-info {
+          text-align: center;
+        }
+        .footer-info p {
+          text-align: left;
+          margin-left: 0;
+        }
+        .features {
+          text-align: left;
+        }
+      }
+    </style>
+    
+    <script>
+      function openGoogleForm() {
+        // URL của Google Form
+        var url =
+          "https://docs.google.com/forms/d/e/1FAIpQLSdf2V1kM0jOXqTySduk6ZgifEXvTMLQ7XsJ9HUxLOdshDORNw/viewform?usp=sharing";
+
+        // Mở tab mới
+        window.open(url, "_blank");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Giảm 80%<br />tác vụ thủ công</h1>
+          <div class="subtitle">với phần mềm InvoiceManagement</div>
+          <div class="features">
+            <div class="feature">
+              Tải bảng tổng hợp, chi tiết mua vào bán ra
+            </div>
+            <div class="feature">
+              Tải một lần cả ba Hoá đơn có mã, không mã, khởi tạo từ máy tính
+              tiền
+            </div>
+            <div class="feature">Tải hàng loạt HDDT: XML, HTML, Json</div>
+            <div class="feature">Hỗ trợ tự động tải hóa đơn PDF gốc</div>
+            <div class="feature">Không giới hạn thời gian tra cứu</div>
+            <div class="feature">
+              Kiểm tra, cảnh báo các NCC có rủi ro về thuế
+            </div>
+            <div class="feature">
+              Hỗ trợ nhập khẩu vào tất cả các phần mềm kế toán qua file Excel
+            </div>
+            <div class="feature">
+              Hỗ trợ chuyển đổi từ hóa đơn từ XML sang PDF hàng loạt.
+            </div>
+          </div>
+          <div class="buttons">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdf2V1kM0jOXqTySduk6ZgifEXvTMLQ7XsJ9HUxLOdshDORNw/viewform?usp=sharing"
+              target="_blank"
+              class="btn btn-primary"
+              >Dùng thử miễn phí</a
+            >
+            <a
+              href="https://zalo.me/0975851681"
+              target="_blank"
+              class="btn btn-secondary"
+              >Nhận tư vấn</a
+            >
+            <a
+              href="https://youtu.be/qzD2xHOZPP0?si=Ib7nmF_Fd4VP1jzU"
+              target="_blank"
+              class="btn btn-tertiary"
+              >Hướng dẫn sử dụng</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            width="505px"
+            height="291px"
+            src="https://amis.misa.vn/sites/amis/images/pages/new-amis-ke-toan/img-banner-1.webp"
+          />
+        </div>
+      </section>
+      <section class="pricing-container">
+        <div class="pricing-card">
+          <div class="pricing-title">01 MST</div>
+          <div class="pricing-price">990,000đ</div>
+          <ul class="pricing-features">
+            <li>Thời hạn vĩnh viễn</li>
+            <li>Sử dụng trên mọi máy tính</li>
+          </ul>
+          <button class="pricing-button" onclick="openGoogleForm()">
+            MUA NGAY
+          </button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-title">01 Máy</div>
+          <div class="pricing-price">2,500,000đ</div>
+          <ul class="pricing-features">
+            <li>Thời hạn vĩnh viễn</li>
+            <li>Sử dụng trên 01 máy tính</li>
+            <li>Không giới hạn số Mst</li>
+          </ul>
+          <button class="pricing-button" onclick="openGoogleForm()">
+            MUA NGAY
+          </button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-title">Ưu đãi đặc biệt </div>
+          <div class="pricing-price">Mua một tăng một</div>
+          <ul class="pricing-features">
+            <li>Tặng phần mềm Tải tờ khai, thông báo, MST cá nhân từ TCT</li>
+            <li>Thời hạn vĩnh viễn</li>
+            <li>Sử dụng trên 01 máy tính</li>
+          </ul>
+          <button class="pricing-button" onclick="openGoogleForm()">
+            MUA NGAY
+          </button>
+        </div>
+      </section>
+      <section class="center-section">
+        <div id="center-div">
+          <img
+            src="\Image\TaiHoaDon.png"
+            alt="Image"
+            class="center-image"
+          />
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <section class="footer-section">
+          <h3>Techno Finance Innovations</h3>
+          <div class="footer-info">
+            <p><i>📞</i><strong>Điện thoại: </strong> 0975.851.681</p>
+            <p><i>📧</i><strong>Email: </strong> technofinanceinnovations@gmail.com</p>
+            <p>
+              <i>📍</i><strong>Điạ chỉ: </strong> 136 Hồ Tùng Mậu, Bắc Từ Liêm,
+              Hà Nội.
+            </p>
+            <p><i>🌐</i><strong>Website: </strong> www.thienthuy.com</p>
+          </div>
+        </section>
+        <section class="footer-section">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.877293057194!2d105.76117121540166!3d21.03813249280516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455d92ec22a37%3A0x581e5821136477e5!2zMTM2IEjhu5MgVOG7sW5nIE3huqF1LCBQaMO6IERp4buFbiwgQuG6r2MgVOG7pyBMaWUsIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1593734241667!5m2!1sen!2s"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
